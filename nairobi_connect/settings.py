@@ -39,10 +39,25 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'accounts',
     'django_extensions',
+     'channels',
      'rest_framework_simplejwt.token_blacklist',
 
     
 ]
+
+# ASGI application path
+ASGI_APPLICATION = 'nairobi_connect.asgi.application'
+
+# Redis Channel Layer
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)], 
+              'BACKEND': 'channels.layers.InMemoryChannelLayer', # Make sure Redis is running
+        },
+    },
+}
 
 CORS_ALLOW_CREDENTIALS = True
 REST_FRAMEWORK = {

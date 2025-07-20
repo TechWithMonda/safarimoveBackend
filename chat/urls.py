@@ -3,4 +3,5 @@ from .views import ActiveMessagesView
 
 urlpatterns = [
     path('messages/', ActiveMessagesView.as_view(), name='messages'),
+    
 ]
