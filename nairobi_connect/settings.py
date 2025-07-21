@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django_extensions',
      'channels',
      'rest_framework_simplejwt.token_blacklist',
+     'traffics',
 
     
 ]
+# settings.py
+GOOGLE_MAPS_API_KEY = 'AIzaSyAgqiQldF3euqttbxxtOA62YB2_hRgki7Y'
 
 # ASGI application path
 ASGI_APPLICATION = 'nairobi_connect.asgi.application'
