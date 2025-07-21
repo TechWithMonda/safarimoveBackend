@@ -6,6 +6,8 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, status, serializers  #
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 class UserSerializer(ModelSerializer):
 
     class Meta:
@@ -92,3 +94,15 @@ class LogoutView(generics.GenericAPIView):
             return response
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def verify_token(request):
+    """
+    Simple endpoint that returns 200 if token is valid
+    """
+    return Response(
+        {'status': 'valid', 'user': request.user.username},
+        status=status.HTTP_200_OK
+    )
