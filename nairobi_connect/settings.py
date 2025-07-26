@@ -38,7 +38,22 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.railway.app',  # Allow all Railway subdomains
     '.vercel.app',
+    "capacitor://localhost",
 ]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+    r"^https://.*\.railway\.app$",
+    r"^https://.*\.ngrok-free\.app$",
+]
+CORS_ALLOW_METHODS= [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173", 
     "http://127.0.0.1:8080" ,
