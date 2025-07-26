@@ -35,12 +35,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    '.railway.app',  # Allow all Railway subdomains
+    '.vercel.app',
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173", 
     "http://127.0.0.1:8080" ,
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "http://localhost",
+    "capacitor://localhost",
+    "ionic://localhost",
+    "https://localhost",
    
 ]
 # Application definition
