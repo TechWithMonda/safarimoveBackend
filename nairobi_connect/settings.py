@@ -1,9 +1,22 @@
 
 from pathlib import Path
-from dotenv import load_dotenv
+
 import os
 
-load_dotenv()  # Load environment variables from .env file
+import dj_database_url
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL")
+    )
+}
+
+ # Load environment variables from .env file
 
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,6 +43,10 @@ CORS_ALLOWED_ORIGINS = [
    
 ]
 # Application definition
+import os
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -159,7 +176,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
