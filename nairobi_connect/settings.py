@@ -27,7 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -75,16 +77,6 @@ GOOGLE_MAPS_API_KEY = 'AIzaSyAgqiQldF3euqttbxxtOA62YB2_hRgki7Y'
 # ASGI application path
 ASGI_APPLICATION = 'nairobi_connect.asgi.application'
 
-# Redis Channel Layer
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)], 
-              'BACKEND': 'channels.layers.InMemoryChannelLayer', # Make sure Redis is running
-        },
-    },
-}
 
 CORS_ALLOW_CREDENTIALS = True
 REST_FRAMEWORK = {
