@@ -130,6 +130,8 @@ TEMPLATES = [
         },
     },
 ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 WSGI_APPLICATION = 'nairobi_connect.wsgi.application'
 
